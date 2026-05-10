@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xiaowen Qi</title>
+  <meta name="description" content="Personal website of Xiaowen Qi, Ph.D. Candidate in Electrical & Computer Engineering at the University of Maryland. Research in edge ML, geospatial AI, and spatial-temporal graph neural networks.">
+  <meta name="author" content="Xiaowen Qi">
+  <meta name="google-site-verification" content="g19gy5a8WWd9_XrLs3BVa7_rn7rH2cmFyAgxz-jHnP4" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --accent:  #4f6ef7;
+      --text:    #111111;
+      --muted:   #6b7280;
+      --light:   #f5f5f5;
+      --border:  #e5e7eb;
+      --white:   #ffffff;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    /* ── Nav ──────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0 max(2rem, calc(50% - 380px));
+      height: 56px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-size: .95rem; font-weight: 600;
+      color: var(--text); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: .85rem; font-weight: 400; color: var(--muted);
+      text-decoration: none; transition: color .15s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* ── Content column ───────────────────────────── */
+    .col {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── Hero ─────────────────────────────────────── */
+    #hero {
+      padding: 120px 0 80px;
+      border-bottom: 1px solid var(--border);
+    }
+    #hero .col { display: flex; align-items: center; gap: 3rem; }
+    .hero-avatar {
+      flex-shrink: 0; width: 96px; height: 96px; border-radius: 50%;
+      background: var(--light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.6rem;
+      border: 1px solid var(--border);
+    }
+    .hero-text h1 {
+      font-size: 1.7rem; font-weight: 600; letter-spacing: -.02em;
+      margin-bottom: .2rem;
+    }
+    .hero-role { font-size: .9rem; color: var(--accent); font-weight: 500; margin-bottom: .75rem; }
+    .hero-text p { color: var(--muted); font-size: .97rem; max-width: 480px; margin-bottom: 1.4rem; }
+    .btn-row { display: flex; gap: .75rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: .5rem 1.1rem; border-radius: 6px;
+      font-size: .85rem; font-weight: 500;
+      text-decoration: none; transition: background .15s, color .15s, border-color .15s;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: #3a58e0; }
+    .btn-outline { border: 1px solid var(--border); color: var(--text); }
+    .btn-outline:hover { border-color: #aaa; background: var(--light); }
+
+    /* ── Section ──────────────────────────────────── */
+    section { padding: 4.5rem 0; border-bottom: 1px solid var(--border); }
+    section:last-of-type { border-bottom: none; }
+    .section-label {
+      font-size: .72rem; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: .6rem;
+    }
+    h2 {
+      font-size: 1.3rem; font-weight: 600; letter-spacing: -.01em;
+      margin-bottom: .5rem;
+    }
+    .section-sub { color: var(--muted); font-size: .93rem; margin-bottom: 2.5rem; }
+
+    /* ── About ────────────────────────────────────── */
+    .about-grid { display: grid; grid-template-columns: 1fr 200px; gap: 3rem; align-items: start; }
+    .about-text p { color: var(--muted); font-size: .95rem; margin-bottom: .9rem; }
+    .about-text strong { color: var(--text); }
+    .about-stats { display: flex; flex-direction: column; gap: 1rem; }
+    .stat { padding: 1rem; background: var(--light); border-radius: 8px; text-align: center; }
+    .stat-num { font-size: 1.6rem; font-weight: 600; color: var(--text); }
+    .stat-label { font-size: .72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-top: .1rem; }
+
+    /* ── Skills ───────────────────────────────────── */
+    #skills { background: var(--light); }
+    .skills-group { margin-bottom: 1.5rem; }
+    .skills-group-label {
+      font-size: .75rem; font-weight: 600; color: var(--muted);
+      text-transform: uppercase; letter-spacing: .07em;
+      margin-bottom: .6rem;
+    }
+    .skills-wrap { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .skill-tag {
+      font-size: .82rem; font-weight: 500;
+      padding: .35rem .85rem; border-radius: 999px;
+      background: var(--white); border: 1px solid var(--border);
+      color: var(--text); transition: border-color .15s;
+    }
+    .skill-tag:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── Projects ─────────────────────────────────── */
+    .projects-list { display: flex; flex-direction: column; gap: 1rem; }
+    .project-item {
+      padding: 1.25rem 1.4rem;
+      border: 1px solid var(--border); border-radius: 8px;
+      display: flex; gap: 1.25rem; align-items: flex-start;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .project-item:hover {
+      border-color: #c0c8f8;
+      box-shadow: 0 2px 10px rgba(79,110,247,.07);
+    }
+    .project-index {
+      font-size: .78rem; color: var(--muted); font-weight: 500;
+      min-width: 24px; padding-top: .15rem;
+    }
+    .project-info { flex: 1; }
+    .project-info h3 { font-size: .97rem; font-weight: 600; margin-bottom: .25rem; }
+    .project-info p { font-size: .88rem; color: var(--muted); margin-bottom: .6rem; }
+    .tag-pill {
+      display: inline-block; font-size: .7rem; font-weight: 600;
+      padding: .15rem .6rem; border-radius: 999px;
+      background: #eef0fe; color: var(--accent);
+      margin-bottom: .5rem; margin-right: .3rem;
+    }
+    .tag-pill.green { background: #ecfdf5; color: #059669; }
+    .project-links { display: flex; gap: 1rem; }
+    .project-links a {
+      font-size: .8rem; font-weight: 500; color: var(--accent);
+      text-decoration: none;
+    }
+    .project-links a:hover { text-decoration: underline; }
+
+    /* ── Publications ─────────────────────────────── */
+    #publications { background: var(--light); }
+    .pubs-list { display: flex; flex-direction: column; }
+    .pub-item {
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--border);
+      display: grid; grid-template-columns: 52px 1fr; gap: 1rem; align-items: start;
+    }
+    .pub-item:first-child { border-top: 1px solid var(--border); }
+    .pub-year { font-size: .8rem; color: var(--muted); font-weight: 500; padding-top: .2rem; }
+    .pub-item h4 { font-size: .93rem; font-weight: 600; margin-bottom: .2rem; }
+    .pub-item .pub-authors { font-size: .83rem; color: var(--muted); margin-bottom: .2rem; }
+    .pub-item .pub-venue {
+      font-size: .78rem; font-weight: 600; color: var(--accent);
+      text-transform: uppercase; letter-spacing: .05em; margin-bottom: .3rem;
+    }
+    .pub-item .pub-venue.draft { color: #d97706; }
+    .pub-item a {
+      font-size: .8rem; color: var(--accent); text-decoration: none; font-weight: 500;
+    }
+    .pub-item a:hover { text-decoration: underline; }
+    .draft-badge {
+      display: inline-block; font-size: .68rem; font-weight: 600;
+      padding: .1rem .5rem; border-radius: 999px;
+      background: #fef3c7; color: #d97706; border: 1px solid #fde68a;
+      margin-left: .4rem; vertical-align: middle;
+    }
+
+    /* ── Contact ──────────────────────────────────── */
+    .contact-wrap { display: flex; gap: 4rem; flex-wrap: wrap; }
+    .contact-left { flex: 1; min-width: 200px; }
+    .contact-left p { color: var(--muted); font-size: .95rem; margin-bottom: 1rem; }
+    .contact-email {
+      font-size: .95rem; font-weight: 500; color: var(--accent);
+      text-decoration: none;
+    }
+    .contact-email:hover { text-decoration: underline; }
+    .contact-links { flex: 1; min-width: 200px; display: flex; flex-direction: column; gap: .5rem; }
+    .social-link {
+      font-size: .88rem; font-weight: 500; color: var(--text);
+      text-decoration: none; display: flex; align-items: center; gap: .5rem;
+      padding: .5rem .75rem; border-radius: 6px;
+      transition: background .15s;
+    }
+    .social-link:hover { background: var(--light); color: var(--accent); }
+
+    /* ── Footer ───────────────────────────────────── */
+    footer {
+      padding: 1.5rem 0; text-align: center;
+      font-size: .8rem; color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── Responsive ───────────────────────────────── */
+    @media (max-width: 640px) {
+      #hero .col { flex-direction: column; gap: 1.5rem; }
+      .about-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      nav { padding: 0 1.25rem; }
+      .col { padding: 0 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+  <a href="#hero" class="nav-logo">Xiaowen Qi</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section id="hero">
+  <div class="col">
+    <div class="hero-avatar">👩🏻‍💻</div>
+    <div class="hero-text">
+      <div class="hero-role">Ph.D. Candidate · Electrical &amp; Computer Engineering</div>
+      <h1>Xiaowen Qi</h1>
+      <p>Ph.D. researcher in Explainable AI, Edge AI, and Geospatial ML with 3+ years of experience building end-to-end ML systems from research prototypes to deployable platforms. Expertise in graph neural networks, model interpretability, hardware-efficient deep learning, and edge deployment. Proven record of translating advanced ML research into working tools, including real-time FPGA inference pipelines and full-stack geospatial analytics systems. Author of 5 peer-reviewed publications (4 first-author) across IEEE and ASME venues.</p>
+      <div class="btn-row">
+        <a href="#projects" class="btn btn-primary">View my work</a>
+        <a href="#contact" class="btn btn-outline">Get in touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="col">
+    <p class="section-label">About</p>
+    <h2>A bit about me</h2>
+    <p class="section-sub">Background, research interests, and what drives me.</p>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          Hello! I'm <strong>Xiaowen Qi</strong>, a Ph.D. candidate in Electrical and Computer Engineering
+          at the <strong>University of Maryland, College Park</strong>,
+          advised by Dr. Shuvra S. Bhattacharyya. I obtain a B.S. in Electrical Engineering from the University of Maryland with Summa Cum Laude honors.
+        </p>
+        <p>
+          My research sits at the intersection of <strong> edge and embedded ML</strong>, <strong>geospatial AI</strong>,
+          and <strong>Explainable AI (XAI)</strong>. I build systems that are not just accurate,
+          but transparent, efficient, and deployable — from FPGA-accelerated real-time monitoring pipelines
+          to interpretable graph neural networks for urban crime forecasting.
+        </p>
+        <p>
+          I also enjoy bridging theory and practice: shipping research into usable tools like PyQt GUIs
+          and hardware-accelerated deployments on FPGAs. 
+        </p>
+        <br/>
+        <a href="https://drive.google.com/file/d/19Nf5_d52TQj1zo64FD3f2ooNQ1dhwTr_/view?usp=drive_link" class="btn btn-outline">Download CV</a>
+      </div>
+      <div class="about-stats">
+        <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Years research</div></div>
+        <div class="stat"><div class="stat-num">5</div><div class="stat-label">Publications</div></div>
+        <div class="stat"><div class="stat-num">3.93</div><div class="stat-label">Ph.D. GPA</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+  <div class="col">
+    <p class="section-label">Skills</p>
+    <h2>What I work with</h2>
+    <p class="section-sub">Languages, frameworks, and tools I use regularly.</p>
+
+    <div class="skills-group">
+      <div class="skills-group-label">Languages</div>
+      <div class="skills-wrap">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">C / C++</span>
+        <span class="skill-tag">Verilog</span>
+        <span class="skill-tag">MATLAB</span>
+        <span class="skill-tag">SQL</span>
+      </div>
+    </div>
+
+    <div class="skills-group">
+      <div class="skills-group-label">ML / AI Frameworks</div>
+      <div class="skills-wrap">
+        <span class="skill-tag">PyTorch</span>
+        <span class="skill-tag">TensorFlow</span>
+        <span class="skill-tag">TensorFlow Lite</span>
+        <span class="skill-tag">ONNX</span>
+        <span class="skill-tag">Hugging Face</span>
+        <span class="skill-tag">Larq</span>
+        <span class="skill-tag">scikit-learn</span>
+      </div>
+    </div>
+
+    <div class="skills-group">
+      <div class="skills-group-label">Edge / Hardware</div>
+      <div class="skills-wrap">
+        <span class="skill-tag">FINN</span>
+        <span class="skill-tag">hls4ml</span>
+        <span class="skill-tag">rule4ml</span>
+        <span class="skill-tag">Vivado/HLS</span>
+      </div>
+    </div>
+
+    <div class="skills-group">
+      <div class="skills-group-label">Data & Geospatial</div>
+      <div class="skills-wrap">
+        <span class="skill-tag">NumPy</span>
+        <span class="skill-tag">Pandas</span>
+        <span class="skill-tag">GeoPandas</span>
+        <span class="skill-tag">Shapely</span>
+        <span class="skill-tag">Folium</span>
+        <span class="skill-tag">Matplotlib</span>
+      </div>
+    </div>
+
+    <div class="skills-group" style="margin-bottom:0">
+      <div class="skills-group-label">Tools & Infrastructure</div>
+      <div class="skills-wrap">
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">Linux</span>
+        <span class="skill-tag">CMake</span>
+        <span class="skill-tag">NS-3</span>
+        <span class="skill-tag">Qt/PyQt</span>
+        <span class="skill-tag">Cadence Virtuoso</span>
+        <span class="skill-tag">LabVIEW</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+  <div class="col">
+    <p class="section-label">Projects</p>
+    <h2>Featured work</h2>
+    <p class="section-sub">Research projects and tools I have built or contributed to.</p>
+    <div class="projects-list">
+
+      <div class="project-item">
+        <div class="project-index">01</div>
+        <div class="project-info">
+          <div class="tag-pill">Graph Structure Learning (GSL)</div>
+          <div class="tag-pill">Disentangled GNN</div>
+          <div class="tag-pill green">Ongoing</div>
+          <h3>Disentangled STGNN for Urban Crime Prediction</h3>
+          <p>A novel white-box Disentangled Spatial-Temporal GNN (DSTGNN) with residual-guided Graph Structure Learning. Learns dynamic latent topologies beyond known spatial and contextual priors, and uses disentangled channel message passing to independently route semantic signals — achieving both high predictive accuracy on imbalanced crime data and unprecedented edge-level interpretability.</p>
+          <div class="project-links"><a href="#">Paper (draft) ↗</a><a href="https://github.com/x7779/Disentangled-Spatial-temporal-GNN-for-Interpretable-Crime-Prediction">GitHub ↗</a></div>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-index">02</div>
+        <div class="project-info">
+          <div class="tag-pill">Edge ML / FPGA</div>
+          <div class="tag-pill green">Ongoing</div>
+          <h3>Real-time Spatter Prediction in Additive Manufacturing</h3>
+          <p>A staged 2D+1D convolutional model that decomposes spatio-temporal video processing to meet stringent FPGA deployment constraints in AM control loops. A multi-scale temporal difference module explicitly encodes motion at three scales, achieving accuracy comparable to full 3D CNNs at significantly lower latency and memory cost.</p>
+          <div class="project-links"><a href="#">Paper (draft) ↗</a><a href="#">GitHub ↗</a></div>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-index">03</div>
+        <div class="project-info">
+          <div class="tag-pill">Geospatial AI</div>
+          <div class="tag-pill">PyQt</div>
+          <h3>Geospatial Crime Prediction Platform</h3>
+          <p>An end-to-end crime prediction platform with a parallel-branch model that fuses static geospatial context with temporal crime history. Delivered as multiple PyQt GUIs for one-click data alignment, prediction, interactive mapping, and report generation.</p>
+          <div class="project-links"><a href="#">GitHub ↗</a></div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+
+<!-- Publications -->
+<section id="publications">
+  <div class="col">
+    <p class="section-label">Research</p>
+    <h2>Publications</h2>
+    <p class="section-sub">Peer-reviewed papers I have authored or co-authored.</p>
+    <div class="pubs-list">
+
+      <div class="pub-item">
+        <div class="pub-year">2026<br/><span class="draft-badge">Draft</span></div>
+        <div>
+          <h4>Disentangled Spatial-Temporal Graph Neural Network with Residual-guided Graph Structure Learning for Crime Prediction</h4>
+          <p class="pub-authors"><strong>Qi, X.</strong>, Nakamura, Y., &amp; Bhattacharyya, S.</p>
+          <p class="pub-venue draft">Under Review</p>
+          <a href="#">Preprint ↗</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2026<br/><span class="draft-badge">Draft</span></div>
+        <div>
+          <h4>Bridging Accuracy and FPGA Deployability for Video-Based Additive Manufacturing Monitoring and Prediction</h4>
+          <p class="pub-authors"><strong>Qi, X.</strong>, Juba, D., Keyrouz, W., Yeung, H., Lu, Y., &amp; Bhattacharyya, S.</p>
+          <p class="pub-venue draft">Under Review</p>
+          <a href="#">Preprint ↗</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2025</div>
+        <div>
+          <h4>Towards Incorporating Social and Spatial Dependencies in Machine Learning Models for Crime Prediction</h4>
+          <p class="pub-authors"><strong>Qi, X.</strong>, Nakamura, Y., &amp; Bhattacharyya, S.</p>
+          <p class="pub-venue">IEEE SMC 2025</p>
+          <a href="#">Paper ↗</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2025</div>
+        <div>
+          <h4>Towards Real-time Spatter Prediction in Additive Manufacturing</h4>
+          <p class="pub-authors"><strong>Qi, X.</strong>, Juba, D., Keyrouz, W., Yeung, H., Lu, Y., &amp; Bhattacharyya, S.</p>
+          <p class="pub-venue">ASME IDETC/CIE 2025</p>
+          <a href="https://asmedigitalcollection.asme.org/IDETC-CIE/proceedings-abstract/IDETC-CIE2025/89206/V02AT02A059/1225734" target="_blank">Paper ↗</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2024</div>
+        <div>
+          <h4>Balancing Fairness and Accuracy for Predictive Models in Criminal Justice Applications Using Multi-objective Optimization Methods</h4>
+          <p class="pub-authors"><strong>Qi, X.</strong>, Ma, Y., Nakamura, Y., &amp; Bhattacharyya, S.</p>
+          <p class="pub-venue">IEEE SMC 2024</p>
+          <a href="https://ieeexplore.ieee.org/document/10831952" target="_blank">Paper ↗</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2023</div>
+        <div>
+          <h4>Energy-efficient Access Point Deployment for Industrial IoT Systems</h4>
+          <p class="pub-authors"><strong>Qi, X.</strong>, Geng, J., Kashef, M., Bhattacharyya, S., &amp; Candell, R.</p>
+          <p class="pub-venue">IFIP IoT Conference 2023</p>
+          <a href="https://www.nist.gov/publications/energy-efficient-access-point-deployment-industrial-iot-systems" target="_blank">Paper ↗</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2023</div>
+        <div>
+          <h4>Towards Interpretable, Attention-Based Crime Forecasting</h4>
+          <p class="pub-authors">Ma, Y., <strong>Qi, X.</strong>, Nakamura, Y., &amp; Bhattacharyya, S.</p>
+          <p class="pub-venue">IEEE SMC 2023</p>
+          <a href="https://ieeexplore.ieee.org/document/10394118" target="_blank">Paper ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="col">
+    <p class="section-label">Contact</p>
+    <h2>Get in touch</h2>
+    <p class="section-sub">Open to collaborations, research discussions, or questions.</p>
+    <div class="contact-wrap">
+      <div class="contact-left">
+        <p>Feel free to reach out — I try to respond within a few days.</p>
+        <a href="mailto:xqi12@umd.edu" class="contact-email">xqi12@umd.edu</a>
+        <br/><br/>
+        <p style="font-size:.88rem;">📍 Greenbelt, MD</p>
+      </div>
+      <div class="contact-links">
+        <a href="https://github.com/x7779" class="social-link" target="_blank">🐙 GitHub</a>
+        <a href="https://linkedin.com/in/xiaowen-qi7" class="social-link" target="_blank">💼 LinkedIn</a>
+        <a href="https://scholar.google.com/citations?user=id8nbHEAAAAJ&hl=en" class="social-link" target="_blank">🎓 Google Scholar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="col">
+    <p>© 2026 <a href="#">Xiaowen Qi</a> · Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
