@@ -3,10 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Xiaowen Qi</title>
-  <meta name="description" content="Personal website of Xiaowen Qi, Ph.D. Candidate in Electrical & Computer Engineering at the University of Maryland. Research in edge ML, geospatial AI, and spatial-temporal graph neural networks.">
+  <title>Xiaowen Qi | Ph.D. Candidate, ECE, University of Maryland</title>
+  <meta name="description" content="Xiaowen Qi is a Ph.D. candidate in Electrical & Computer Engineering at the University of Maryland, College Park, working on interpretable graph neural networks, edge ML on FPGAs, and geospatial AI.">
   <meta name="author" content="Xiaowen Qi">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://xiaowen-qi.github.io/">
   <meta name="google-site-verification" content="g19gy5a8WWd9_XrLs3BVa7_rn7rH2cmFyAgxz-jHnP4" />
+
+  <!-- Open Graph / link previews -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Xiaowen Qi | Ph.D. Candidate, ECE, University of Maryland">
+  <meta property="og:description" content="Interpretable graph neural networks, edge ML on FPGAs, and geospatial AI.">
+  <meta property="og:url" content="https://xiaowen-qi.github.io/">
+  <meta property="og:site_name" content="Xiaowen Qi">
+  <meta property="profile:first_name" content="Xiaowen">
+  <meta property="profile:last_name" content="Qi">
+  <meta name="twitter:card" content="summary">
+
+  <!-- Structured data: tells search engines this page is about the person "Xiaowen Qi" -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Xiaowen Qi",
+    "givenName": "Xiaowen",
+    "familyName": "Qi",
+    "url": "https://xiaowen-qi.github.io/",
+    "email": "mailto:xqi12@umd.edu",
+    "jobTitle": "Ph.D. Candidate in Electrical and Computer Engineering",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Maryland, College Park",
+      "url": "https://umd.edu"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Maryland, College Park"
+    },
+    "knowsAbout": [
+      "Explainable AI",
+      "Graph Neural Networks",
+      "Spatio-temporal forecasting",
+      "Edge machine learning",
+      "FPGA acceleration",
+      "Geospatial AI",
+      "Crime prediction"
+    ],
+    "sameAs": [
+      "https://github.com/xiaowen-qi",
+      "https://www.linkedin.com/in/xiaowen-qi7",
+      "https://scholar.google.com/citations?user=id8nbHEAAAAJ"
+    ]
+  }
+  </script>
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -18,7 +68,7 @@
       --border:  #e5e7eb;
       --white:   #ffffff;
     }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 56px; }
     body {
       font-family: 'Inter', sans-serif;
       background: var(--white);
@@ -41,7 +91,7 @@
       font-size: .95rem; font-weight: 600;
       color: var(--text); text-decoration: none;
     }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links { display: flex; gap: 1.6rem; list-style: none; }
     .nav-links a {
       font-size: .85rem; font-weight: 400; color: var(--muted);
       text-decoration: none; transition: color .15s;
@@ -73,7 +123,7 @@
       margin-bottom: .2rem;
     }
     .hero-role { font-size: .9rem; color: var(--accent); font-weight: 500; margin-bottom: .75rem; }
-    .hero-text p { color: var(--muted); font-size: .97rem; max-width: 480px; margin-bottom: 1.4rem; }
+    .hero-text p { color: var(--muted); font-size: .97rem; max-width: 520px; margin-bottom: 1.4rem; }
     .btn-row { display: flex; gap: .75rem; flex-wrap: wrap; }
     .btn {
       display: inline-flex; align-items: center; gap: .35rem;
@@ -108,6 +158,16 @@
     .stat-num { font-size: 1.6rem; font-weight: 600; color: var(--text); }
     .stat-label { font-size: .72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-top: .1rem; }
 
+    /* ── Experience ───────────────────────────────── */
+    .exp-list { display: flex; flex-direction: column; gap: 2.25rem; }
+    .exp-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+    .exp-head h3 { font-size: .97rem; font-weight: 600; }
+    .exp-date { font-size: .8rem; color: var(--muted); font-weight: 500; white-space: nowrap; }
+    .exp-role { font-size: .85rem; color: var(--accent); font-weight: 500; margin-bottom: .5rem; }
+    .exp-item ul { padding-left: 1.1rem; }
+    .exp-item li { font-size: .88rem; color: var(--muted); margin-bottom: .35rem; }
+    .exp-item li strong { color: var(--text); font-weight: 500; }
+
     /* ── Skills ───────────────────────────────────── */
     #skills { background: var(--light); }
     .skills-group { margin-bottom: 1.5rem; }
@@ -141,7 +201,7 @@
       font-size: .78rem; color: var(--muted); font-weight: 500;
       min-width: 24px; padding-top: .15rem;
     }
-    .project-info { flex: 1; }
+    .project-info { flex: 1; min-width: 0; }
     .project-info h3 { font-size: .97rem; font-weight: 600; margin-bottom: .25rem; }
     .project-info p { font-size: .88rem; color: var(--muted); margin-bottom: .6rem; }
     .tag-pill {
@@ -151,12 +211,28 @@
       margin-bottom: .5rem; margin-right: .3rem;
     }
     .tag-pill.green { background: #ecfdf5; color: #059669; }
-    .project-links { display: flex; gap: 1rem; }
+    .project-links { display: flex; gap: 1rem; flex-wrap: wrap; }
     .project-links a {
       font-size: .8rem; font-weight: 500; color: var(--accent);
       text-decoration: none;
     }
     .project-links a:hover { text-decoration: underline; }
+
+    /* Demo videos */
+    .demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: .4rem 0 .9rem; }
+    .demo figure { margin: 0; }
+    .demo video {
+      display: block; width: 100%; height: auto; aspect-ratio: 1920 / 1270;
+      border-radius: 6px; border: 1px solid var(--border); background: var(--light);
+    }
+    .demo figcaption { font-size: .78rem; color: var(--muted); margin-top: .35rem; }
+    .demo figcaption strong { color: var(--text); font-weight: 600; }
+
+    .other-projects { margin-top: 2rem; }
+    .other-projects h3 { font-size: .75rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-bottom: .6rem; }
+    .other-projects li { list-style: none; font-size: .88rem; color: var(--muted); padding: .55rem 0; border-top: 1px solid var(--border); }
+    .other-projects li strong { color: var(--text); font-weight: 600; }
+    .other-projects li span { font-size: .78rem; margin-left: .35rem; }
 
     /* ── Publications ─────────────────────────────── */
     #publications { background: var(--light); }
@@ -174,17 +250,15 @@
       font-size: .78rem; font-weight: 600; color: var(--accent);
       text-transform: uppercase; letter-spacing: .05em; margin-bottom: .3rem;
     }
-    .pub-item .pub-venue.draft { color: #d97706; }
     .pub-item a {
       font-size: .8rem; color: var(--accent); text-decoration: none; font-weight: 500;
     }
     .pub-item a:hover { text-decoration: underline; }
-    .draft-badge {
-      display: inline-block; font-size: .68rem; font-weight: 600;
-      padding: .1rem .5rem; border-radius: 999px;
-      background: #fef3c7; color: #d97706; border: 1px solid #fde68a;
-      margin-left: .4rem; vertical-align: middle;
-    }
+
+    /* ── Service & Teaching ───────────────────────── */
+    .service-list { display: flex; flex-direction: column; gap: 1.1rem; }
+    .service-item h3 { font-size: .93rem; font-weight: 600; margin-bottom: .15rem; }
+    .service-item p { font-size: .88rem; color: var(--muted); }
 
     /* ── Contact ──────────────────────────────────── */
     .contact-wrap { display: flex; gap: 4rem; flex-wrap: wrap; }
@@ -213,12 +287,17 @@
     footer a { color: var(--accent); text-decoration: none; }
 
     /* ── Responsive ───────────────────────────────── */
+    @media (max-width: 760px) {
+      .nav-links { gap: 1.1rem; }
+      .demo-grid { grid-template-columns: 1fr; }
+    }
     @media (max-width: 640px) {
       #hero .col { flex-direction: column; gap: 1.5rem; }
       .about-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
       nav { padding: 0 1.25rem; }
       .col { padding: 0 1.25rem; }
+      .project-item { padding: 1.1rem 1rem; gap: .75rem; }
     }
   </style>
 </head>
@@ -229,21 +308,24 @@
   <a href="#hero" class="nav-logo">Xiaowen Qi</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#publications">Publications</a></li>
+    <li><a href="#skills">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
+<main>
+
 <!-- Hero -->
 <section id="hero">
   <div class="col">
-    <div class="hero-avatar">👩🏻‍💻</div>
+    <div class="hero-avatar" aria-hidden="true">👩🏻‍💻</div>
     <div class="hero-text">
-      <div class="hero-role">Ph.D. Candidate · Electrical &amp; Computer Engineering</div>
+      <div class="hero-role">Ph.D. Candidate · Electrical &amp; Computer Engineering · University of Maryland</div>
       <h1>Xiaowen Qi</h1>
-      <p>Ph.D. researcher in Explainable AI, Edge AI, and Geospatial ML with 3+ years of experience building end-to-end ML systems from research prototypes to deployable platforms. Expertise in graph neural networks, model interpretability, hardware-efficient deep learning, and edge deployment. Proven record of translating advanced ML research into working tools, including real-time FPGA inference pipelines and full-stack geospatial analytics systems. Author of 5 peer-reviewed publications (4 first-author) across IEEE and ASME venues.</p>
+      <p>Ph.D. candidate at the University of Maryland, College Park with 4+ years building end-to-end machine learning systems from research prototypes to deployed products: interpretable graph neural networks, hardware-efficient deep learning on FPGAs, and production-grade model-explainability and scientific-visualization tooling. Author of 7 peer-reviewed publications (6 first-author) in IEEE and ASME venues.</p>
       <div class="btn-row">
         <a href="#projects" class="btn btn-primary">View my work</a>
         <a href="#contact" class="btn btn-outline">Get in touch</a>
@@ -262,27 +344,220 @@
       <div class="about-text">
         <p>
           Hello! I'm <strong>Xiaowen Qi</strong>, a Ph.D. candidate in Electrical and Computer Engineering
-          at the <strong>University of Maryland, College Park</strong>,
-          advised by Dr. Shuvra S. Bhattacharyya. I obtain a B.S. in Electrical Engineering from the University of Maryland with Summa Cum Laude honors.
+          at the <strong>University of Maryland, College Park</strong> (expected December 2026),
+          advised by Dr. Shuvra S. Bhattacharyya in the Maryland DSPCAD Research Group. I received my B.S. in Electrical Engineering from the University of Maryland, Summa Cum Laude.
         </p>
         <p>
-          My research sits at the intersection of <strong> edge and embedded ML</strong>, <strong>geospatial AI</strong>,
+          My research sits at the intersection of <strong>edge and embedded ML</strong>, <strong>geospatial AI</strong>,
           and <strong>Explainable AI (XAI)</strong>. I build systems that are not just accurate,
-          but transparent, efficient, and deployable — from FPGA-accelerated real-time monitoring pipelines
-          to interpretable graph neural networks for urban crime forecasting.
+          but transparent, efficient, and deployable — from FPGA-deployable spatio-temporal models for
+          additive-manufacturing monitoring to interpretable graph neural networks for urban crime forecasting.
         </p>
         <p>
-          I also enjoy bridging theory and practice: shipping research into usable tools like PyQt GUIs
-          and hardware-accelerated deployments on FPGAs. 
+          I also enjoy bridging theory and practice: shipping research into usable tools, from PyQt geospatial
+          analytics apps to the explainability and visualization tooling I built as an R&amp;D Software Engineering
+          Intern at <strong>Keysight Technologies</strong> in Summer 2026.
         </p>
         <br/>
-        <a href="https://drive.google.com/file/d/19Nf5_d52TQj1zo64FD3f2ooNQ1dhwTr_/view?usp=drive_link" class="btn btn-outline">Download CV</a>
+        <a href="https://drive.google.com/file/d/19Nf5_d52TQj1zo64FD3f2ooNQ1dhwTr_/view?usp=drive_link" class="btn btn-outline" target="_blank" rel="noopener">Download CV</a>
       </div>
       <div class="about-stats">
-        <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Years research</div></div>
-        <div class="stat"><div class="stat-num">5</div><div class="stat-label">Publications</div></div>
-        <div class="stat"><div class="stat-num">3.93</div><div class="stat-label">Ph.D. GPA</div></div>
+        <div class="stat"><div class="stat-num">4+</div><div class="stat-label">Years research</div></div>
+        <div class="stat"><div class="stat-num">7</div><div class="stat-label">Publications</div></div>
+        <div class="stat"><div class="stat-num">3.94</div><div class="stat-label">Ph.D. GPA</div></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experience -->
+<section id="experience">
+  <div class="col">
+    <p class="section-label">Experience</p>
+    <h2>Where I've worked</h2>
+    <p class="section-sub">Industry and research positions.</p>
+    <div class="exp-list">
+
+      <div class="exp-item">
+        <div class="exp-head"><h3>Keysight Technologies</h3><span class="exp-date">May 2026 – Aug. 2026</span></div>
+        <div class="exp-role">R&amp;D Software Engineering Intern · Calabasas, CA</div>
+        <ul>
+          <li>Re-platformed the GUI of Keysight AI-Driven Designer, a native C++ reinforcement-learning design-optimization engine, onto <strong>PySide6 with embedded CPython</strong>, with race-safe process and threading infrastructure for simulation, LLM chat, PostgreSQL, plotting, and shutdown.</li>
+          <li>Replaced subprocess-PNG plotting with an <strong>OpenGL backend</strong>: 15–30× faster window resizing and 10.4× faster 20,000-point scatter rendering (859 → 82 ms; memory 578 → 82 MB).</li>
+          <li>Built a linked-view analysis workbench (six coordinated views with cross-view brushing) and a <strong>surrogate-model explainability dashboard</strong> with live agreement monitoring against simulator ground truth and a replayable what-if workspace.</li>
+          <li>Achieved <strong>bit-exact replay</strong> of recorded float32 GPU surrogate predictions by isolating TF32 and cuBLAS GEMM-vs-GEMV dispatch as root causes of non-reproducibility; established a 700+ test regression framework.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-head"><h3>Maryland DSPCAD Research Group, University of Maryland</h3><span class="exp-date">Aug. 2022 – Present</span></div>
+        <div class="exp-role">Graduate Research Assistant · College Park, MD</div>
+        <ul>
+          <li><strong>Interpretable crime forecasting &amp; fairness-aware recidivism prediction:</strong> designed PRISM, a white-box spatio-temporal GNN; delivered a full-stack geospatial analytics platform; built an NSGA-II framework co-optimizing accuracy, interpretability, and demographic fairness.</li>
+          <li><strong>Real-time monitoring &amp; AI inferencing for additive manufacturing:</strong> proposed a staged 2D+1D CNN for melt-pool spatter prediction that is end-to-end compilable by FINN for FPGA deployment, with quantization-aware training down to 1-bit.</li>
+          <li><strong>Industrial wireless systems</strong> (Aug. 2022 – Jan. 2024): energy-efficient access point deployment algorithm in NS-3, reducing network energy by 10% while maintaining coverage and QoS.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-head"><h3>GONG Group, University of Maryland</h3><span class="exp-date">Aug. 2019 – May 2020</span></div>
+        <div class="exp-role">Undergraduate Research Assistant · College Park, MD</div>
+        <ul>
+          <li>Developed a LabVIEW-based temperature control system to automate experiments; co-designed a cryostat chamber lid that doubled the achievable magnetic field strength; mentored ~10 incoming students.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+  <div class="col">
+    <p class="section-label">Projects</p>
+    <h2>Featured work</h2>
+    <p class="section-sub">Research projects and tools I have built.</p>
+    <div class="projects-list">
+
+      <div class="project-item">
+        <div class="project-index">01</div>
+        <div class="project-info">
+          <div class="tag-pill">Graph Structure Learning</div>
+          <div class="tag-pill">Interpretable GNN</div>
+          <div class="tag-pill green">IEEE SMC 2026</div>
+          <h3>PRISM: Disentangled Spatio-Temporal GNN for Interpretable Crime Forecasting</h3>
+          <p>A white-box spatio-temporal graph neural network that pairs fixed spatial and contextual prior graphs with a residual-guided learned latent graph. Gated disentangled message passing, graph orthogonalization, and targeted regularization keep the three relation channels semantically distinct, yielding edge-level attribution for every prediction. Improves RMSE, MAPE, and R² over single-graph ST-GNN and ablation baselines across biweekly, monthly, and bi-monthly scales on 20 years of citywide crime data fused with census, land-use, housing, and business-location features.</p>
+          <div class="project-links"><a href="https://github.com/xiaowen-qi/Disentangled-ST-GNN-with-Residual-Guided-GSL-for-Interpretable-Crime-Prediction" target="_blank" rel="noopener">GitHub ↗</a></div>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-index">02</div>
+        <div class="project-info">
+          <div class="tag-pill">Edge ML / FPGA</div>
+          <div class="tag-pill">Quantization</div>
+          <div class="tag-pill green">ASME IDETC/CIE 2026</div>
+          <h3>FPGA-Deployable Spatter Prediction for Additive Manufacturing</h3>
+          <p>A staged 2D+1D CNN that fully decouples spatial and temporal processing for melt-pool spatter prediction, halving parameters (699K → 356K) at accuracy comparable to Conv3D and (2+1)D baselines. An operator-level compatibility analysis showed it is the only evaluated spatio-temporal architecture end-to-end compilable by FINN. Reusing spatial features across overlapping frame windows gives a 6.7× (CPU) / 5.7× (GPU) streaming speedup at ≤4 KB cache, and quantization-aware training (8/4/2/1-bit) compresses models up to 8× while retaining ≥85% of baseline accuracy.</p>
+          <div class="project-links"><a href="https://asmedigitalcollection.asme.org/IDETC-CIE/proceedings-abstract/IDETC-CIE2025/89206/V02AT02A059/1225734" target="_blank" rel="noopener">Earlier paper (IDETC 2025) ↗</a></div>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-index">03</div>
+        <div class="project-info">
+          <div class="tag-pill">Geospatial AI</div>
+          <div class="tag-pill">PyQt</div>
+          <div class="tag-pill">Folium</div>
+          <h3>Geospatial Analysis Platform for Crime Prediction</h3>
+          <p>Two desktop applications that take you from raw public data and incident records to a trained, evaluated crime-forecasting model and a per-region risk ranking, all on a regular CPU. The <strong>Census / POI Alignment</strong> app re-distributes U.S. Census block-group statistics and points-of-interest onto custom regions (e.g. police beats) with area-weighted overlay and interactive maps; the <strong>Crime Prediction Wizard</strong> aggregates incidents, builds spatial and contextual neighbor and lag features, trains and compares models, and ranks regions by predicted risk.</p>
+          <div class="demo-grid demo">
+            <figure>
+              <video controls preload="none" playsinline poster="assets/demos/census-alignment-poster.jpg" aria-label="Demo of the Census / POI Alignment app">
+                <source src="assets/demos/census-alignment-demo.mp4" type="video/mp4">
+              </video>
+              <figcaption><strong>Demo 1:</strong> Census / POI alignment onto custom regions (1:14)</figcaption>
+            </figure>
+            <figure>
+              <video controls preload="none" playsinline poster="assets/demos/crime-prediction-poster.jpg" aria-label="Demo of the Crime Prediction Wizard">
+                <source src="assets/demos/crime-prediction-demo.mp4" type="video/mp4">
+              </video>
+              <figcaption><strong>Demo 2:</strong> Crime Prediction Wizard, from raw records to risk ranking (1:46)</figcaption>
+            </figure>
+          </div>
+          <div class="project-links"><a href="https://github.com/xiaowen-qi/Geospatial-Analysis-Platform-for-Crime-Prediction" target="_blank" rel="noopener">GitHub ↗</a></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="other-projects">
+      <h3>Course projects</h3>
+      <ul>
+        <li><strong>GAN Training with Distributed Memory Parallelism</strong><span>2025</span><br/>MPI-based parallel training of multiple GANs across distributed-memory nodes, measuring speedup and convergence trade-offs across 2–8 workers.</li>
+        <li><strong>Energy-efficient Computing: Fixed-point MAC &amp; ReRAM Neuron</strong><span>2024</span><br/>16/8/4-bit fixed-point MAC units for MNIST classification, and a ReRAM-based 1T1R neuron with crossbar architecture.</li>
+        <li><strong>De-Biasing Transformer Models via Two-Stage Fine-tuning</strong><span>2023</span><br/>A bias-detection-then-mitigation fine-tuning pipeline that reduces demographic bias metrics while preserving task accuracy (team of 5).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Publications -->
+<section id="publications">
+  <div class="col">
+    <p class="section-label">Research</p>
+    <h2>Publications</h2>
+    <p class="section-sub">Peer-reviewed papers I have authored or co-authored. See also <a href="https://scholar.google.com/citations?user=id8nbHEAAAAJ&amp;hl=en" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">Google Scholar ↗</a></p>
+    <div class="pubs-list">
+
+      <div class="pub-item">
+        <div class="pub-year">2026</div>
+        <div>
+          <h4>PRISM: A Disentangled Spatio-Temporal GNN with Residual-Guided Graph Structure Learning for Interpretable Crime Forecasting</h4>
+          <p class="pub-authors"><strong>Qi, X.</strong>, Nakamura, K., &amp; Bhattacharyya, S.</p>
+          <p class="pub-venue">IEEE SMC 2026</p>
+          <a href="https://github.com/xiaowen-qi/Disentangled-ST-GNN-with-Residual-Guided-GSL-for-Interpretable-Crime-Prediction" target="_blank" rel="noopener">Code ↗</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2026</div>
+        <div>
+          <h4>Bridging Accuracy and FPGA Deployability for Video-Based Additive Manufacturing Monitoring and Prediction</h4>
+          <p class="pub-authors"><strong>Qi, X.</strong>, Juba, D., Keyrouz, W., Yeung, H., Lu, Y., &amp; Bhattacharyya, S.</p>
+          <p class="pub-venue">ASME IDETC/CIE 2026</p>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2025</div>
+        <div>
+          <h4>Towards Incorporating Social and Spatial Dependencies in Machine Learning Models for Crime Prediction</h4>
+          <p class="pub-authors"><strong>Qi, X.</strong>, Nakamura, K., &amp; Bhattacharyya, S.</p>
+          <p class="pub-venue">IEEE SMC 2025</p>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2025</div>
+        <div>
+          <h4>Towards Real-time Spatter Prediction in Additive Manufacturing</h4>
+          <p class="pub-authors"><strong>Qi, X.</strong>, Juba, D., Keyrouz, W., Yeung, H., Lu, Y., &amp; Bhattacharyya, S.</p>
+          <p class="pub-venue">ASME IDETC/CIE 2025</p>
+          <a href="https://asmedigitalcollection.asme.org/IDETC-CIE/proceedings-abstract/IDETC-CIE2025/89206/V02AT02A059/1225734" target="_blank" rel="noopener">Paper ↗</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2024</div>
+        <div>
+          <h4>Balancing Fairness and Accuracy for Predictive Models in Criminal Justice Applications Using Multi-objective Optimization Methods</h4>
+          <p class="pub-authors"><strong>Qi, X.</strong>, Ma, Y., Nakamura, K., &amp; Bhattacharyya, S.</p>
+          <p class="pub-venue">IEEE SMC 2024</p>
+          <a href="https://ieeexplore.ieee.org/document/10831952" target="_blank" rel="noopener">Paper ↗</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2023</div>
+        <div>
+          <h4>Energy-efficient Access Point Deployment for Industrial IoT Systems</h4>
+          <p class="pub-authors"><strong>Qi, X.</strong>, Geng, J., Kashef, M., Bhattacharyya, S., &amp; Candell, R.</p>
+          <p class="pub-venue">IFIP IoT Conference 2023</p>
+          <a href="https://www.nist.gov/publications/energy-efficient-access-point-deployment-industrial-iot-systems" target="_blank" rel="noopener">Paper ↗</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2023</div>
+        <div>
+          <h4>Towards Interpretable, Attention-Based Crime Forecasting</h4>
+          <p class="pub-authors">Ma, Y., <strong>Qi, X.</strong>, Nakamura, K., &amp; Bhattacharyya, S.</p>
+          <p class="pub-venue">IEEE SMC 2023</p>
+          <a href="https://ieeexplore.ieee.org/document/10394118" target="_blank" rel="noopener">Paper ↗</a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -306,15 +581,27 @@
     </div>
 
     <div class="skills-group">
-      <div class="skills-group-label">ML / AI Frameworks</div>
+      <div class="skills-group-label">ML / AI</div>
       <div class="skills-wrap">
         <span class="skill-tag">PyTorch</span>
-        <span class="skill-tag">TensorFlow</span>
-        <span class="skill-tag">TensorFlow Lite</span>
+        <span class="skill-tag">TensorFlow / LiteRT</span>
         <span class="skill-tag">ONNX</span>
         <span class="skill-tag">Hugging Face</span>
-        <span class="skill-tag">Larq</span>
         <span class="skill-tag">scikit-learn</span>
+        <span class="skill-tag">Quantization-aware training</span>
+        <span class="skill-tag">Larq</span>
+      </div>
+    </div>
+
+    <div class="skills-group">
+      <div class="skills-group-label">Visualization / UI</div>
+      <div class="skills-wrap">
+        <span class="skill-tag">Qt 6 (PySide6, PyQt, QML/Qt Quick)</span>
+        <span class="skill-tag">OpenGL</span>
+        <span class="skill-tag">PyQtGraph</span>
+        <span class="skill-tag">Matplotlib</span>
+        <span class="skill-tag">Folium</span>
+        <span class="skill-tag">Manim</span>
       </div>
     </div>
 
@@ -329,158 +616,49 @@
     </div>
 
     <div class="skills-group">
-      <div class="skills-group-label">Data & Geospatial</div>
+      <div class="skills-group-label">Data &amp; Geospatial</div>
       <div class="skills-wrap">
         <span class="skill-tag">NumPy</span>
         <span class="skill-tag">Pandas</span>
         <span class="skill-tag">GeoPandas</span>
         <span class="skill-tag">Shapely</span>
-        <span class="skill-tag">Folium</span>
-        <span class="skill-tag">Matplotlib</span>
+        <span class="skill-tag">PostgreSQL</span>
+        <span class="skill-tag">SQLite</span>
       </div>
     </div>
 
     <div class="skills-group" style="margin-bottom:0">
-      <div class="skills-group-label">Tools & Infrastructure</div>
+      <div class="skills-group-label">Tools &amp; Infrastructure</div>
       <div class="skills-wrap">
         <span class="skill-tag">Git</span>
+        <span class="skill-tag">CMake</span>
         <span class="skill-tag">Docker</span>
         <span class="skill-tag">Linux</span>
-        <span class="skill-tag">CMake</span>
+        <span class="skill-tag">pytest</span>
+        <span class="skill-tag">Profiling (perf, Qt Creator Analyzer)</span>
         <span class="skill-tag">NS-3</span>
-        <span class="skill-tag">Qt/PyQt</span>
-        <span class="skill-tag">Cadence Virtuoso</span>
         <span class="skill-tag">LabVIEW</span>
+        <span class="skill-tag">Cadence Virtuoso</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Projects -->
-<section id="projects">
+<!-- Service & Teaching -->
+<section id="service">
   <div class="col">
-    <p class="section-label">Projects</p>
-    <h2>Featured work</h2>
-    <p class="section-sub">Research projects and tools I have built or contributed to.</p>
-    <div class="projects-list">
-
-      <div class="project-item">
-        <div class="project-index">01</div>
-        <div class="project-info">
-          <div class="tag-pill">Graph Structure Learning (GSL)</div>
-          <div class="tag-pill">Disentangled GNN</div>
-          <div class="tag-pill green">Ongoing</div>
-          <h3>Disentangled STGNN for Urban Crime Prediction</h3>
-          <p>A novel white-box Disentangled Spatial-Temporal GNN (DSTGNN) with residual-guided Graph Structure Learning. Learns dynamic latent topologies beyond known spatial and contextual priors, and uses disentangled channel message passing to independently route semantic signals — achieving both high predictive accuracy on imbalanced crime data and unprecedented edge-level interpretability.</p>
-          <div class="project-links"><a href="#">Paper (draft) ↗</a><a href="https://github.com/x7779/Disentangled-Spatial-temporal-GNN-for-Interpretable-Crime-Prediction">GitHub ↗</a></div>
-        </div>
+    <p class="section-label">Service &amp; Teaching</p>
+    <h2>Community</h2>
+    <p class="section-sub">Reviewing and teaching.</p>
+    <div class="service-list">
+      <div class="service-item">
+        <h3>Reviewer</h3>
+        <p>IEEE Journal of Selected Topics in Signal Processing; IEEE International Conference on Systems, Man, and Cybernetics (SMC).</p>
       </div>
-
-      <div class="project-item">
-        <div class="project-index">02</div>
-        <div class="project-info">
-          <div class="tag-pill">Edge ML / FPGA</div>
-          <div class="tag-pill green">Ongoing</div>
-          <h3>Real-time Spatter Prediction in Additive Manufacturing</h3>
-          <p>A staged 2D+1D convolutional model that decomposes spatio-temporal video processing to meet stringent FPGA deployment constraints in AM control loops. A multi-scale temporal difference module explicitly encodes motion at three scales, achieving accuracy comparable to full 3D CNNs at significantly lower latency and memory cost.</p>
-          <div class="project-links"><a href="#">Paper (draft) ↗</a><a href="#">GitHub ↗</a></div>
-        </div>
+      <div class="service-item">
+        <h3>Graduate Teaching Assistant, University of Maryland</h3>
+        <p>Mathematical Foundations for Computer Engineering; Differential Equations &amp; Linear Algebra; Capstone (Embedded Software Design; Modern Digital System Design); Digital Computer Design.</p>
       </div>
-
-      <div class="project-item">
-        <div class="project-index">03</div>
-        <div class="project-info">
-          <div class="tag-pill">Geospatial AI</div>
-          <div class="tag-pill">PyQt</div>
-          <h3>Geospatial Crime Prediction Platform</h3>
-          <p>An end-to-end crime prediction platform with a parallel-branch model that fuses static geospatial context with temporal crime history. Delivered as multiple PyQt GUIs for one-click data alignment, prediction, interactive mapping, and report generation.</p>
-          <div class="project-links"><a href="#">GitHub ↗</a></div>
-        </div>
-      </div>
-
-
-    </div>
-  </div>
-</section>
-
-<!-- Publications -->
-<section id="publications">
-  <div class="col">
-    <p class="section-label">Research</p>
-    <h2>Publications</h2>
-    <p class="section-sub">Peer-reviewed papers I have authored or co-authored.</p>
-    <div class="pubs-list">
-
-      <div class="pub-item">
-        <div class="pub-year">2026<br/><span class="draft-badge">Draft</span></div>
-        <div>
-          <h4>Disentangled Spatial-Temporal Graph Neural Network with Residual-guided Graph Structure Learning for Crime Prediction</h4>
-          <p class="pub-authors"><strong>Qi, X.</strong>, Nakamura, Y., &amp; Bhattacharyya, S.</p>
-          <p class="pub-venue draft">Under Review</p>
-          <a href="#">Preprint ↗</a>
-        </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">2026<br/><span class="draft-badge">Draft</span></div>
-        <div>
-          <h4>Bridging Accuracy and FPGA Deployability for Video-Based Additive Manufacturing Monitoring and Prediction</h4>
-          <p class="pub-authors"><strong>Qi, X.</strong>, Juba, D., Keyrouz, W., Yeung, H., Lu, Y., &amp; Bhattacharyya, S.</p>
-          <p class="pub-venue draft">Under Review</p>
-          <a href="#">Preprint ↗</a>
-        </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">2025</div>
-        <div>
-          <h4>Towards Incorporating Social and Spatial Dependencies in Machine Learning Models for Crime Prediction</h4>
-          <p class="pub-authors"><strong>Qi, X.</strong>, Nakamura, Y., &amp; Bhattacharyya, S.</p>
-          <p class="pub-venue">IEEE SMC 2025</p>
-          <a href="#">Paper ↗</a>
-        </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">2025</div>
-        <div>
-          <h4>Towards Real-time Spatter Prediction in Additive Manufacturing</h4>
-          <p class="pub-authors"><strong>Qi, X.</strong>, Juba, D., Keyrouz, W., Yeung, H., Lu, Y., &amp; Bhattacharyya, S.</p>
-          <p class="pub-venue">ASME IDETC/CIE 2025</p>
-          <a href="https://asmedigitalcollection.asme.org/IDETC-CIE/proceedings-abstract/IDETC-CIE2025/89206/V02AT02A059/1225734" target="_blank">Paper ↗</a>
-        </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">2024</div>
-        <div>
-          <h4>Balancing Fairness and Accuracy for Predictive Models in Criminal Justice Applications Using Multi-objective Optimization Methods</h4>
-          <p class="pub-authors"><strong>Qi, X.</strong>, Ma, Y., Nakamura, Y., &amp; Bhattacharyya, S.</p>
-          <p class="pub-venue">IEEE SMC 2024</p>
-          <a href="https://ieeexplore.ieee.org/document/10831952" target="_blank">Paper ↗</a>
-        </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">2023</div>
-        <div>
-          <h4>Energy-efficient Access Point Deployment for Industrial IoT Systems</h4>
-          <p class="pub-authors"><strong>Qi, X.</strong>, Geng, J., Kashef, M., Bhattacharyya, S., &amp; Candell, R.</p>
-          <p class="pub-venue">IFIP IoT Conference 2023</p>
-          <a href="https://www.nist.gov/publications/energy-efficient-access-point-deployment-industrial-iot-systems" target="_blank">Paper ↗</a>
-        </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">2023</div>
-        <div>
-          <h4>Towards Interpretable, Attention-Based Crime Forecasting</h4>
-          <p class="pub-authors">Ma, Y., <strong>Qi, X.</strong>, Nakamura, Y., &amp; Bhattacharyya, S.</p>
-          <p class="pub-venue">IEEE SMC 2023</p>
-          <a href="https://ieeexplore.ieee.org/document/10394118" target="_blank">Paper ↗</a>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -499,18 +677,20 @@
         <p style="font-size:.88rem;">📍 Greenbelt, MD</p>
       </div>
       <div class="contact-links">
-        <a href="https://github.com/x7779" class="social-link" target="_blank">🐙 GitHub</a>
-        <a href="https://linkedin.com/in/xiaowen-qi7" class="social-link" target="_blank">💼 LinkedIn</a>
-        <a href="https://scholar.google.com/citations?user=id8nbHEAAAAJ&hl=en" class="social-link" target="_blank">🎓 Google Scholar</a>
+        <a href="https://github.com/xiaowen-qi" class="social-link" target="_blank" rel="noopener me">🐙 GitHub</a>
+        <a href="https://www.linkedin.com/in/xiaowen-qi7" class="social-link" target="_blank" rel="noopener me">💼 LinkedIn</a>
+        <a href="https://scholar.google.com/citations?user=id8nbHEAAAAJ&amp;hl=en" class="social-link" target="_blank" rel="noopener me">🎓 Google Scholar</a>
       </div>
     </div>
   </div>
 </section>
 
+</main>
+
 <!-- Footer -->
 <footer>
   <div class="col">
-    <p>© 2026 <a href="#">Xiaowen Qi</a> · Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></p>
+    <p>© 2026 <a href="https://xiaowen-qi.github.io/">Xiaowen Qi</a> · Hosted on <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a></p>
   </div>
 </footer>
 
